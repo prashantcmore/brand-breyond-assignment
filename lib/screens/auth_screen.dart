@@ -185,7 +185,10 @@ class _AuthCardState extends State<AuthCard> {
                   ),
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(labelText: 'E-Mail'),
+                  decoration: const InputDecoration(
+                    labelText: 'E-Mail',
+                    icon: Icon(Icons.email),
+                  ),
                   keyboardType: TextInputType.emailAddress,
                   controller: _emailController,
                   validator: (value) {
@@ -198,18 +201,24 @@ class _AuthCardState extends State<AuthCard> {
                     _authData['email'] = value!;
                   },
                 ),
-                TextFormField(
-                  decoration: const InputDecoration(labelText: 'Password'),
-                  obscureText: true,
-                  controller: _passwordController,
-                  validator: (value) {
-                    if (value!.isEmpty || value.length < 5) {
-                      return 'Password is too short!';
-                    }
-                  },
-                  onSaved: (value) {
-                    _authData['password'] = value!;
-                  },
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                        labelText: 'Password', icon: Icon(Icons.password), fillColor: Colors.grey),
+                    obscureText: true,
+                    controller: _passwordController,
+                    validator: (value) {
+                      if (value!.isEmpty || value.length < 5) {
+                        return 'Password is too short!';
+                      }
+                    },
+                    onSaved: (value) {
+                      _authData['password'] = value!;
+                    },
+                  ),
                 ),
                 if (_authMode == AuthMode.Signup)
                   TextFormField(
@@ -248,7 +257,7 @@ class _AuthCardState extends State<AuthCard> {
                     ),
                     FlatButton(
                         child: Text(
-                          ' ${_authMode == AuthMode.Signup ? 'SIGNUP' : 'Signup'} ',
+                          ' ${_authMode == AuthMode.Signup ? 'SIGNUP' : 'Sign Up'} ',
                           style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
                         ),
                         onPressed: _switchAuthMode,
