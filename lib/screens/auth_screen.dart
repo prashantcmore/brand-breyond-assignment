@@ -16,21 +16,9 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
       body: Stack(
         children: <Widget>[
           Container(
-            // decoration: BoxDecoration(
-            // gradient: LinearGradient(
-            //   colors: [
-            //     Color.fromRGBO(215, 117, 255, 1).withOpacity(0.5),
-            //     Color.fromRGBO(255, 188, 117, 1).withOpacity(0.9),
-            //   ],
-            // begin: Alignment.topLeft,
-            // end: Alignment.bottomRight,
-            // stops: [0, 1],
-            // ),
-            // ),
             child: Image.asset('assets/image1.png', fit: BoxFit.cover),
           ),
           SingleChildScrollView(
